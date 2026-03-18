@@ -1,0 +1,40 @@
+# ─── API KEYS — NEVER PUSH ───────────────
+.env
+*.env
+backend/.env
+
+# ─── PYTHON ──────────────────────────────
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+venv/
+env/
+.venv/
+
+# ─── CHROMADB ────────────────────────────
+chroma_db/
+backend/chroma_db/
+
+# ─── NODE / REACT ────────────────────────
+node_modules/
+frontend/node_modules/
+build/
+frontend/build/
+frontend/.env
+frontend/.env.local
+frontend/.env.production
+
+# ─── OS FILES ────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ─── IDE ─────────────────────────────────
+.vscode/
+.idea/
+*.swp
+
+# ─── LOGS ────────────────────────────────
+*.log
+npm-debug.log*
