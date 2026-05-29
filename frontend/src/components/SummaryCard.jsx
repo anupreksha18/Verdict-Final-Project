@@ -1,13 +1,11 @@
 function SummaryCard({ summary }) {
   return (
-    <div className="bg-gray-900 border border-gray-800 
-      rounded-2xl p-6">
-      <h3 className="text-purple-400 font-semibold 
-        mb-3 flex items-center gap-2">
-        📋 Summary
+    <div className="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm">
+      <h3 className="font-semibold text-black mb-3">
+        Summary
       </h3>
-      <p className="text-gray-300 text-sm 
-        leading-relaxed">
+
+      <p className="text-gray-600 text-sm leading-relaxed">
         {summary}
       </p>
     </div>

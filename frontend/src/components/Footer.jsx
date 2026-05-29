@@ -2,98 +2,86 @@ import { Link } from "react-router-dom";
 
 function Footer() {
   return (
-    <footer className="bg-gray-900 border-t 
-      border-gray-800 mt-16 w-full">
-      <div className="w-full px-6 py-10">
-        <div className="grid grid-cols-1 
-          md:grid-cols-3 gap-8">
+    <footer className="bg-gray-50 border-t border-gray-200">
 
-          {/* Brand */}
+      <div className="px-6 md:px-16 py-14">
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+
+          {/* BRAND */}
           <div>
-            <div className="flex items-center 
-              gap-2 mb-3">
-              <span className="text-2xl">⚖️</span>
-              <span className="font-bold text-xl">
-                Verdict
+
+            <div className="flex items-center gap-2 mb-4">
+              <span className="text-xl font-bold text-black">
+                ⚖️ Verdict
               </span>
             </div>
-            <p className="text-gray-500 text-sm 
-              leading-relaxed">
-              AI-powered product review analyzer 
-              using Retrieval Augmented Generation 
-              technology. Works for any product 
-              category.
+
+            <p className="text-gray-600 text-sm leading-relaxed">
+              Verdict helps you understand product reviews instantly
+              using AI-driven analysis. Faster decisions, less confusion.
             </p>
+
           </div>
 
-          {/* Links */}
+          {/* LINKS */}
           <div>
-            <h4 className="text-white font-semibold 
-              mb-3">
+
+            <h4 className="font-semibold mb-4 text-black">
               Pages
             </h4>
-            <ul className="space-y-2">
+
+            <ul className="space-y-2 text-sm text-gray-600">
+
               {[
                 { path: "/", label: "Home" },
                 { path: "/analyzer", label: "Analyzer" },
-                { path: "/how-it-works", label: "How It Works" },
+                { path: "/how-it-works", label: "How it works" },
                 { path: "/about", label: "About" },
-                { path: "/team", label: "Team" },
-              ].map((link) => (
-                <li key={link.path}>
+              ].map((l) => (
+                <li key={l.path}>
                   <Link
-                    to={link.path}
-                    className="text-gray-500 text-sm 
-                      hover:text-purple-400 transition"
+                    to={l.path}
+                    className="hover:text-black transition"
                   >
-                    {link.label}
+                    {l.label}
                   </Link>
                 </li>
               ))}
+
             </ul>
+
           </div>
 
-          {/* Tech Stack */}
+          {/* INFO */}
           <div>
-            <h4 className="text-white font-semibold 
-              mb-3">
-              Built With
+
+            <h4 className="font-semibold mb-4 text-black">
+              What it does
             </h4>
-            <div className="flex flex-wrap gap-2">
-              {[
-                "React.js",
-                "Tailwind CSS",
-                "Flask",
-                "LangChain",
-                "ChromaDB",
-                "Groq AI",
-                "Llama 3.3",
-                "Python",
-              ].map((tech) => (
-                <span
-                  key={tech}
-                  className="px-2 py-1 bg-gray-800 
-                    text-gray-400 text-xs rounded-lg"
-                >
-                  {tech}
-                </span>
-              ))}
-            </div>
+
+            <p className="text-sm text-gray-600 leading-relaxed">
+              • Summarizes reviews<br />
+              • Detects sentiment<br />
+              • Extracts pros & cons<br />
+              • Helps buying decisions
+            </p>
+
           </div>
+
         </div>
 
-        {/* Bottom */}
-        <div className="border-t border-gray-800 
-          mt-8 pt-6 flex flex-col md:flex-row 
-          items-center justify-between gap-3">
-          <p className="text-gray-600 text-xs">
-            © 2025 Verdict — BCA Final Year Project
-          </p>
-          <p className="text-gray-600 text-xs">
-            Built with ❤️ using RAG + LLM Technology
-          </p>
+        {/* BOTTOM BAR */}
+        <div className="border-t border-gray-200 mt-10 pt-6 flex flex-col md:flex-row justify-between gap-3 text-sm text-gray-500">
+
+          <p>© 2026 Verdict. All rights reserved.</p>
+
+          <p>Built for smarter product decisions</p>
+
         </div>
+
       </div>
+
     </footer>
   );
 }

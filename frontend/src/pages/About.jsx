@@ -1,282 +1,215 @@
+import { Link } from "react-router-dom";
+import img1 from '../assets/img1 (1).jpg';
+import img2 from '../assets/img2 (1).jpg';
+import img3 from '../assets/img3 (1).jpg';
+import img4 from '../assets/img4 (1).jpg';
+import img5 from '../assets/img5 (1).jpg';
+import img6 from '../assets/img6 (1).jpg';
+
 function About() {
-  const problems = [
-    "Reading hundreds of reviews manually is time consuming",
-    "Reviews contain sarcasm and negation that confuse basic models",
-    "Traditional ML models only classify — they don't explain",
-    "Static models can't handle new product categories",
-  ];
-
-  const solutions = [
-    "RAG system retrieves and analyzes reviews dynamically",
-    "Llama 3.3 70B handles sarcasm, negation and mixed reviews",
-    "System generates full analysis — not just a label",
-    "Works for ANY product category automatically",
-  ];
-
   return (
-    <div className="w-full px-6 py-12">
+    <div className="w-full bg-white text-black">
 
-      {/* Header */}
-      <div className="text-center mb-14">
-        <h1 className="text-4xl font-bold 
-          text-white mb-3">
-          About Verdict
+      {/* ================= HERO ================= */}
+      <section className="relative min-h-screen flex flex-col items-center justify-center text-center px-6 py-28 overflow-hidden">
+
+        {/* background image */}
+        <div className="absolute inset-0 -z-10">
+          <img
+            src={img1}
+            className="w-full h-full object-cover opacity-10"
+          />
+        </div>
+
+        <h1 className="text-5xl md:text-6xl font-bold leading-tight">
+          Human Insight,
+          <br />
+          <span className="text-gray-500">scaled with intelligence</span>
         </h1>
-        <p className="text-gray-500 max-w-2xl mx-auto">
-          E-Commerce Product Rating System Based on
-          Customer Review Mining Using RAG
-        </p>
-      </div>
 
-      {/* Stats */}
-      <div className="grid grid-cols-2 
-        md:grid-cols-4 gap-4 mb-6">
-        {[
-          { value: "7", label: "Analysis Points" },
-          { value: "Any", label: "Product Category" },
-          { value: "₹0", label: "Total Cost" },
-          { value: "< 5s", label: "Response Time" },
-        ].map((stat) => (
-          <div key={stat.label}
-            className="bg-gray-900 border 
-              border-gray-800 rounded-2xl p-6 
-              text-center">
-            <p className="text-3xl font-bold 
-              text-purple-400 mb-2">
-              {stat.value}
+        <p className="text-gray-500 max-w-2xl mt-6 text-base md:text-lg leading-relaxed">
+          We transform scattered customer opinions into structured,
+          decision-ready insights in seconds.
+        </p>
+
+        <div className="w-24 h-[2px] bg-black mt-10 opacity-10" />
+      </section>
+
+      {/* ================= MISSION ================= */}
+      <section className="py-28 px-6 md:px-20 bg-gray-50">
+
+        <div className="grid md:grid-cols-2 gap-14 max-w-6xl mx-auto items-center">
+
+          {/* LEFT TEXT */}
+          <div>
+            <p className="text-xs tracking-[0.3em] text-gray-400 uppercase">
+              Purpose
             </p>
-            <p className="text-gray-500 text-xs">
-              {stat.label}
+
+            <h2 className="text-4xl font-bold mt-3 mb-6">
+              Our Mission
+            </h2>
+
+            <p className="text-gray-600 leading-relaxed mb-4">
+              Customer feedback is powerful but chaotic. We convert that chaos
+              into clarity using AI-driven semantic understanding.
+            </p>
+
+            <p className="text-gray-600 leading-relaxed">
+              Every decision becomes faster, clearer, and more reliable.
             </p>
           </div>
-        ))}
-      </div>
 
-      {/* Overview */}
-      <div className="bg-gray-900 border 
-        border-gray-800 rounded-2xl p-8 mb-6">
-        <h2 className="text-purple-400 font-bold 
-          text-2xl mb-4">
-          📌 Project Overview
-        </h2>
-        <p className="text-gray-300 text-sm 
-          leading-relaxed mb-4">
-          Verdict is an AI-powered e-commerce product
-          rating system that uses Retrieval Augmented
-          Generation (RAG) to analyze customer reviews
-          and provide comprehensive product insights.
-        </p>
-        <p className="text-gray-300 text-sm 
-          leading-relaxed">
-          Unlike traditional sentiment analysis models
-          that only classify reviews as positive or
-          negative, Verdict provides a complete analysis
-          including star ratings, summaries, pros and
-          cons, aspect-wise ratings and fake review
-          detection — for any product category.
-          No training required. No dataset needed.
-          Just paste reviews and get instant results.
-        </p>
-      </div>
-
-      {/* Problem & Solution */}
-      <div className="grid grid-cols-1 
-        md:grid-cols-2 gap-6 mb-6">
-
-        <div className="bg-red-900/10 border 
-          border-red-900 rounded-2xl p-8">
-          <h2 className="text-red-400 font-bold 
-            text-xl mb-5">
-            ❌ Problem Statement
-          </h2>
-          <ul className="space-y-4">
-            {problems.map((p, i) => (
-              <li key={i}
-                className="flex items-start gap-3">
-                <span className="text-red-500 
-                  shrink-0 mt-0.5 text-lg">
-                  •
-                </span>
-                <span className="text-gray-300 text-sm">
-                  {p}
-                </span>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <div className="bg-green-900/10 border 
-          border-green-900 rounded-2xl p-8">
-          <h2 className="text-green-400 font-bold 
-            text-xl mb-5">
-            ✅ Our Solution
-          </h2>
-          <ul className="space-y-4">
-            {solutions.map((s, i) => (
-              <li key={i}
-                className="flex items-start gap-3">
-                <span className="text-green-500 
-                  shrink-0 mt-0.5 text-lg">
-                  •
-                </span>
-                <span className="text-gray-300 text-sm">
-                  {s}
-                </span>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
-
-      {/* How It Works */}
-      <div className="bg-gray-900 border 
-        border-gray-800 rounded-2xl p-8 mb-6">
-        <h2 className="text-purple-400 font-bold 
-          text-2xl mb-6">
-          ⚙️ How Verdict Works
-        </h2>
-        <div className="grid grid-cols-1 
-          md:grid-cols-3 gap-4">
-          {[
-            {
-              icon: "📋",
-              title: "Paste Reviews",
-              desc: "Copy reviews from any e-commerce site and paste them in"
-            },
-            {
-              icon: "🧠",
-              title: "RAG Analyzes",
-              desc: "System retrieves key insights using RAG + Llama 3.3 70B"
-            },
-            {
-              icon: "⚖️",
-              title: "Get Verdict",
-              desc: "Receive rating, summary, pros, cons and full analysis"
-            },
-          ].map((item) => (
-            <div key={item.title}
-              className="bg-gray-800 rounded-xl 
-                p-6 text-center">
-              <div className="text-4xl mb-3">
-                {item.icon}
-              </div>
-              <h3 className="text-white font-semibold 
-                mb-2">
-                {item.title}
-              </h3>
-              <p className="text-gray-500 text-sm 
-                leading-relaxed">
-                {item.desc}
+          {/* RIGHT IMAGE */}
+          <div className="rounded-2xl overflow-hidden border bg-white shadow-sm">
+            <img
+              src={img2}
+              className="w-full h-72 object-cover"
+            />
+            <div className="p-5">
+              <p className="text-sm text-gray-500">
+                Turning raw feedback into structured intelligence
               </p>
             </div>
-          ))}
-        </div>
-      </div>
+          </div>
 
-      {/* What Verdict Analyzes */}
-      <div className="bg-gray-900 border 
-        border-gray-800 rounded-2xl p-8 mb-6">
-        <h2 className="text-purple-400 font-bold 
-          text-2xl mb-6">
-          📊 What Verdict Analyzes
-        </h2>
-        <div className="grid grid-cols-1 
-          md:grid-cols-2 gap-4">
-          {[
-            {
-              icon: "⭐",
-              title: "Overall Rating",
-              desc: "AI calculates accurate 1-5 star rating"
-            },
-            {
-              icon: "📋",
-              title: "Summary",
-              desc: "3-4 line summary of all reviews"
-            },
-            {
-              icon: "✅",
-              title: "Pros",
-              desc: "Top positive points customers mention"
-            },
-            {
-              icon: "❌",
-              title: "Cons",
-              desc: "Top negative points customers mention"
-            },
-            {
-              icon: "😊",
-              title: "Sentiment Analysis",
-              desc: "Positive, negative, neutral percentage"
-            },
-            {
-              icon: "🔍",
-              title: "Aspect Analysis",
-              desc: "Auto detected aspects rated individually"
-            },
-            {
-              icon: "⚠️",
-              title: "Fake Detection",
-              desc: "Suspicious reviews identified automatically"
-            },
-            {
-              icon: "🏆",
-              title: "Final Verdict",
-              desc: "One powerful conclusion line"
-            },
-          ].map((item) => (
-            <div key={item.title}
-              className="flex items-start gap-4
-                bg-gray-800 rounded-xl p-4">
-              <span className="text-2xl shrink-0">
-                {item.icon}
-              </span>
-              <div>
-                <h3 className="text-white font-semibold 
-                  text-sm mb-1">
-                  {item.title}
+        </div>
+      </section>
+
+      {/* ================= VALUES ================= */}
+      <section className="py-28 px-6 md:px-20">
+
+        <div className="max-w-6xl mx-auto">
+
+          <div className="text-center mb-14">
+            <h2 className="text-4xl font-bold mb-3">
+              What we stand for
+            </h2>
+            <p className="text-gray-500">
+              Core principles behind the system
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+
+            {[
+              {
+                title: "Clarity",
+                desc: "We turn noisy feedback into structured insights.",
+                img: img2,
+              },
+              {
+                title: "Speed",
+                desc: "Thousands of reviews processed in seconds.",
+                img: img3,
+              },
+              {
+                title: "Trust",
+                desc: "We preserve meaning so insights stay reliable.",
+                img: img4,
+              },
+            ].map((v) => (
+              <div
+                key={v.title}
+                className="p-6 rounded-2xl border bg-white hover:shadow-md transition"
+              >
+                <img
+                  src={v.img}
+                  className="h-36 w-full object-cover rounded-xl mb-4"
+                />
+
+                <h3 className="font-semibold text-lg mb-2">
+                  {v.title}
                 </h3>
-                <p className="text-gray-500 text-xs">
-                  {item.desc}
+
+                <p className="text-gray-500 text-sm leading-relaxed">
+                  {v.desc}
                 </p>
               </div>
-            </div>
-          ))}
-        </div>
-      </div>
+            ))}
 
-      {/* Objectives */}
-      <div className="bg-gray-900 border 
-        border-gray-800 rounded-2xl p-8">
-        <h2 className="text-purple-400 font-bold 
-          text-2xl mb-6">
-          🎯 Objectives
-        </h2>
-        <div className="grid grid-cols-1 
-          md:grid-cols-2 gap-4">
-          {[
-            "Build a domain-agnostic review analysis system",
-            "Implement RAG architecture for dynamic retrieval",
-            "Handle real-world challenges like sarcasm and negation",
-            "Provide aspect-level analysis for any product",
-            "Detect potentially fake or suspicious reviews",
-            "Create a clean, user-friendly web interface",
-          ].map((obj, i) => (
-            <div key={i}
-              className="flex items-center gap-4
-                bg-gray-800 rounded-xl p-4">
-              <span className="w-8 h-8 rounded-full 
-                bg-purple-900/50 border border-purple-700
-                text-purple-400 text-sm flex items-center 
-                justify-center shrink-0 font-bold">
-                {i + 1}
-              </span>
-              <span className="text-gray-300 text-sm">
-                {obj}
-              </span>
-            </div>
-          ))}
+          </div>
         </div>
-      </div>
+      </section>
+
+      {/* ================= PROBLEM / SOLUTION ================= */}
+      <section className="py-28 px-6 md:px-20 bg-gray-50">
+
+        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-8">
+
+          {/* PROBLEM */}
+          <div className="bg-white border rounded-2xl p-8">
+
+            <img
+              src={img5}
+              className="h-40 w-full object-cover rounded-xl mb-6"
+            />
+
+            <p className="text-xs text-red-500 uppercase tracking-widest mb-4">
+              Problem
+            </p>
+
+            <h3 className="text-2xl font-bold mb-4">
+              Information overload
+            </h3>
+
+            <p className="text-gray-600 text-sm leading-relaxed mb-4">
+              People cannot manually process thousands of reviews effectively.
+            </p>
+
+            <ul className="space-y-2 text-sm text-gray-500">
+              <li>• Cognitive overload</li>
+              <li>• Slow decisions</li>
+              <li>• Biased interpretation</li>
+            </ul>
+          </div>
+
+          {/* SOLUTION */}
+          <div className="bg-black text-white rounded-2xl p-8">
+
+            <img
+              src={img6}
+              className="h-40 w-full object-cover rounded-xl mb-6"
+            />
+
+            <p className="text-xs text-gray-400 uppercase tracking-widest mb-4">
+              Solution
+            </p>
+
+            <h3 className="text-2xl font-bold mb-4">
+              AI-powered synthesis engine
+            </h3>
+
+            <p className="text-gray-300 text-sm leading-relaxed mb-4">
+              We convert unstructured reviews into clear, actionable insights instantly.
+            </p>
+
+            <ul className="space-y-2 text-sm text-gray-300">
+              <li>• Full coverage analysis</li>
+              <li>• Semantic understanding</li>
+              <li>• Instant summarization</li>
+            </ul>
+          </div>
+
+        </div>
+      </section>
+
+      {/* ================= CTA ================= */}
+      <section className="py-28 px-6 text-center">
+
+        <h2 className="text-4xl font-bold mb-4">
+          Ready to make better decisions?
+        </h2>
+
+        <p className="text-gray-500 max-w-xl mx-auto mb-8">
+          Stop reading endless reviews. Start getting structured insights instantly.
+        </p>
+
+        <Link to="/analyzer" className="bg-black text-white px-8 py-3 rounded-xl hover:bg-gray-800 transition">
+          Get Started
+        </Link>
+
+      </section>
 
     </div>
   );

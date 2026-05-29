@@ -6,100 +6,89 @@ function Navbar() {
   const location = useLocation();
 
   const links = [
-    { path: "/", label: "Home" },
-    { path: "/analyzer", label: "Analyzer" },
-    { path: "/how-it-works", label: "How It Works" },
-    { path: "/about", label: "About" },
-    { path: "/team", label: "Team" },
+    { path: "/",             label: "Home"         },
+    { path: "/analyzer",     label: "Analyzer"     },
+    { path: "/how-it-works", label: "How it works" },
+    { path: "/about",        label: "About"        },
   ];
 
   const isActive = (path) => location.pathname === path;
 
   return (
-    <nav className="bg-gray-900 border-b 
-      border-gray-800 sticky top-0 z-50 w-full">
-      <div className="w-full px-6 py-4 flex 
-        items-center justify-between">
+    <nav className="w-full sticky top-0 z-50 bg-white/90 backdrop-blur-xl border-b border-gray-200 shadow-[0_2px_12px_rgba(0,0,0,0.05)]">
 
-        {/* Logo */}
-        <Link to="/" 
-          className="flex items-center gap-2">
-          <span className="text-2xl">⚖️</span>
-          <span className="font-bold text-xl text-white">
+      <div className="px-6 md:px-16 h-16 flex items-center justify-between">
+
+        {/* LOGO */}
+        <Link to="/" className="flex items-center gap-3">
+          <svg width="36" height="36" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="52" height="52" rx="12" fill="#111"/>
+            <path d="M14 15L26 33L38 15" stroke="white" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"/>
+            <line x1="26" y1="33" x2="26" y2="39" stroke="white" strokeWidth="2.5" strokeLinecap="round"/>
+            <line x1="19" y1="39" x2="33" y2="39" stroke="white" strokeWidth="2.5" strokeLinecap="round"/>
+          </svg>
+          <span className="font-semibold text-black text-lg tracking-tight">
             Verdict
           </span>
         </Link>
 
-        {/* Desktop Links */}
-        <div className="hidden md:flex 
-          items-center gap-1">
-          {links.map((link) => (
+        {/* DESKTOP LINKS */}
+        <div className="hidden md:flex gap-8 text-sm">
+          {links.map((l) => (
             <Link
-              key={link.path}
-              to={link.path}
-              className={`px-4 py-2 rounded-lg 
-                text-sm font-medium transition
-                ${isActive(link.path)
-                  ? "bg-purple-600 text-white"
-                  : "text-gray-400 hover:text-white hover:bg-gray-800"
-                }`}
+              key={l.path}
+              to={l.path}
+              className="relative text-gray-600 hover:text-black transition"
             >
-              {link.label}
+              {l.label}
+              {isActive(l.path) && (
+                <span className="absolute left-0 -bottom-2 w-full h-[2px] bg-black rounded-full" />
+              )}
             </Link>
           ))}
         </div>
 
-        {/* Try Now Button */}
+        {/* CTA */}
         <Link
           to="/analyzer"
-          className="hidden md:block px-4 py-2 
-            bg-purple-600 hover:bg-purple-700 
-            text-white text-sm font-semibold 
-            rounded-xl transition"
+          className="hidden md:block px-4 py-2 text-sm font-medium border border-black text-black rounded-md hover:bg-black hover:text-white transition"
         >
-          ⚡ Try Now
+          Try Now
         </Link>
 
-        {/* Mobile Menu Button */}
+        {/* MOBILE BUTTON */}
         <button
           onClick={() => setOpen(!open)}
-          className="md:hidden text-gray-400 
-            hover:text-white text-xl"
+          className="md:hidden text-black text-2xl"
         >
           {open ? "✕" : "☰"}
         </button>
+
       </div>
 
-      {/* Mobile Menu */}
+      {/* MOBILE MENU */}
       {open && (
-        <div className="md:hidden border-t 
-          border-gray-800 px-6 py-3 space-y-1">
-          {links.map((link) => (
+        <div className="md:hidden px-6 pb-4 space-y-3 border-t border-gray-200 bg-white">
+          {links.map((l) => (
             <Link
-              key={link.path}
-              to={link.path}
+              key={l.path}
+              to={l.path}
               onClick={() => setOpen(false)}
-              className={`block px-4 py-2 rounded-lg 
-                text-sm font-medium transition
-                ${isActive(link.path)
-                  ? "bg-purple-600 text-white"
-                  : "text-gray-400 hover:text-white hover:bg-gray-800"
-                }`}
+              className="block text-gray-600 hover:text-black transition"
             >
-              {link.label}
+              {l.label}
             </Link>
           ))}
           <Link
             to="/analyzer"
             onClick={() => setOpen(false)}
-            className="block px-4 py-2 bg-purple-600 
-              text-white text-sm font-semibold 
-              rounded-xl text-center mt-2"
+            className="block mt-4 px-4 py-2 border border-black text-black text-center rounded-md"
           >
-            ⚡ Try Now
+            Try Now
           </Link>
         </div>
       )}
+
     </nav>
   );
 }

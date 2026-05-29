@@ -1,38 +1,30 @@
 import {
-  PieChart, Pie, Cell,
-  Tooltip, Legend,
+  PieChart,
+  Pie,
+  Cell,
+  Tooltip,
   ResponsiveContainer
 } from "recharts";
 
 function SentimentChart({ sentiment }) {
   const data = [
-    { 
-      name: "Positive", 
-      value: sentiment.positive 
-    },
-    { 
-      name: "Negative", 
-      value: sentiment.negative 
-    },
-    { 
-      name: "Neutral",  
-      value: sentiment.neutral  
-    },
-  ].filter(d => d.value > 0);
+    { name: "Positive", value: sentiment.positive },
+    { name: "Negative", value: sentiment.negative },
+    { name: "Neutral", value: sentiment.neutral },
+  ].filter((d) => d.value > 0);
 
   const COLORS = ["#22c55e", "#ef4444", "#eab308"];
 
   return (
-    <div className="bg-gray-900 border border-gray-800 
-      rounded-2xl p-6">
-      <h3 className="text-purple-400 font-semibold 
-        mb-4">
-        😊 Sentiment Analysis
-      </h3>
-      <div className="flex flex-col md:flex-row 
-        items-center gap-6">
+    <div className="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm">
 
-        {/* Pie Chart */}
+      <h3 className="font-semibold text-black mb-5">
+        Sentiment Analysis
+      </h3>
+
+      <div className="flex flex-col md:flex-row items-center gap-8">
+
+        {/* PIE CHART */}
         <div className="w-full md:w-1/2 h-52">
           <ResponsiveContainer width="100%" height="100%">
             <PieChart>
@@ -42,78 +34,80 @@ function SentimentChart({ sentiment }) {
                 cy="50%"
                 innerRadius={55}
                 outerRadius={85}
-                paddingAngle={3}
+                paddingAngle={4}
                 dataKey="value"
               >
                 {data.map((entry, index) => (
-                  <Cell
-                    key={index}
-                    fill={COLORS[index]}
-                  />
+                  <Cell key={index} fill={COLORS[index]} />
                 ))}
               </Pie>
+
               <Tooltip
                 formatter={(v) => `${v}%`}
                 contentStyle={{
-                  background: "#1f2937",
-                  border: "1px solid #374151",
+                  background: "#fff",
+                  border: "1px solid #e5e7eb",
                   borderRadius: "8px",
-                  color: "#e5e7eb"
+                  color: "#111"
                 }}
               />
             </PieChart>
           </ResponsiveContainer>
         </div>
 
-        {/* Legend */}
-        <div className="space-y-4 w-full md:w-1/2">
-          {[
-            { 
-              label: "Positive", 
-              value: sentiment.positive, 
-              color: "bg-green-500",
-              text: "text-green-400"
-            },
-            { 
-              label: "Negative", 
-              value: sentiment.negative, 
-              color: "bg-red-500",
-              text: "text-red-400"
-            },
-            { 
-              label: "Neutral",  
-              value: sentiment.neutral,  
-              color: "bg-yellow-500",
-              text: "text-yellow-400"
-            },
-          ].map((item) => (
-            <div key={item.label}>
-              <div className="flex items-center 
-                justify-between mb-1">
-                <div className="flex items-center gap-2">
-                  <div className={`w-3 h-3 rounded-full 
-                    ${item.color}`}>
-                  </div>
-                  <span className="text-gray-300 text-sm">
-                    {item.label}
-                  </span>
-                </div>
-                <span className={`font-bold text-sm 
-                  ${item.text}`}>
-                  {item.value}%
-                </span>
-              </div>
-              <div className="w-full bg-gray-700 
-                rounded-full h-1.5">
-                <div
-                  className={`h-1.5 rounded-full 
-                    ${item.color}`}
-                  style={{ width: `${item.value}%` }}
-                />
-              </div>
+        {/* LEGEND */}
+        <div className="w-full md:w-1/2 space-y-4">
+
+          {/* Positive */}
+          <div>
+            <div className="flex justify-between mb-1">
+              <span className="text-sm text-gray-600">Positive</span>
+              <span className="text-sm font-semibold text-green-600">
+                {sentiment.positive}%
+              </span>
             </div>
-          ))}
+            <div className="w-full bg-gray-100 h-2 rounded-full">
+              <div
+                className="h-2 bg-green-500 rounded-full"
+                style={{ width: `${sentiment.positive}%` }}
+              />
+            </div>
+          </div>
+
+          {/* Negative */}
+          <div>
+            <div className="flex justify-between mb-1">
+              <span className="text-sm text-gray-600">Negative</span>
+              <span className="text-sm font-semibold text-red-600">
+                {sentiment.negative}%
+              </span>
+            </div>
+            <div className="w-full bg-gray-100 h-2 rounded-full">
+              <div
+                className="h-2 bg-red-500 rounded-full"
+                style={{ width: `${sentiment.negative}%` }}
+              />
+            </div>
+          </div>
+
+          {/* Neutral */}
+          <div>
+            <div className="flex justify-between mb-1">
+              <span className="text-sm text-gray-600">Neutral</span>
+              <span className="text-sm font-semibold text-yellow-600">
+                {sentiment.neutral}%
+              </span>
+            </div>
+            <div className="w-full bg-gray-100 h-2 rounded-full">
+              <div
+                className="h-2 bg-yellow-400 rounded-full"
+                style={{ width: `${sentiment.neutral}%` }}
+              />
+            </div>
+          </div>
+
         </div>
+
       </div>
     </div>
   );

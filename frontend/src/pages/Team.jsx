@@ -25,7 +25,7 @@ function Team() {
         </div>
         <h2 className="text-white font-bold 
           text-2xl mb-1">
-          Your Name Here
+          Anupreksha Negi,Anjali Rawat,Ujjawal Singh Negi
         </h2>
         <p className="text-purple-400 text-sm 
           font-medium mb-3">
@@ -66,7 +66,7 @@ function Team() {
         </div>
         <h2 className="text-white font-bold 
           text-2xl mb-1">
-          Guide Name Here
+         Dr. Mahendra Singh Bora
         </h2>
         <p className="text-blue-400 text-sm 
           font-medium mb-3">

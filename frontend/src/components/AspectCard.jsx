@@ -14,31 +14,22 @@ function AspectCard({ name, value }) {
     return "bg-red-500";
   };
 
-  const getTextColor = (score) => {
-    if (score >= 4) return "text-green-400";
-    if (score >= 3) return "text-yellow-400";
-    return "text-red-400";
-  };
-
   return (
-    <div className="bg-gray-800 rounded-xl p-4">
-      <p className="text-gray-400 text-xs 
-        uppercase tracking-wider mb-1">
+    <div className="bg-white border border-gray-200 rounded-xl p-4 shadow-sm">
+      <p className="text-gray-500 text-xs uppercase tracking-wider mb-1">
         {name}
       </p>
-      <p className={`font-bold text-lg mb-2
-        ${score 
-          ? getTextColor(score) 
-          : "text-gray-500"}`}>
+
+      <p className={`font-bold text-lg mb-2 ${
+        score ? "text-black" : "text-gray-400"
+      }`}>
         {value || "NA"}
       </p>
+
       {score && (
-        <div className="w-full bg-gray-700 
-          rounded-full h-1.5">
+        <div className="w-full bg-gray-100 rounded-full h-1.5">
           <div
-            className={`h-1.5 rounded-full 
-              transition-all duration-500
-              ${getColor(score)}`}
+            className={`h-1.5 rounded-full ${getColor(score)}`}
             style={{ width: `${percentage}%` }}
           />
         </div>

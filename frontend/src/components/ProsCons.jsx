@@ -1,51 +1,34 @@
 function ProsCons({ pros, cons }) {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 
-      gap-6">
+    <div className="grid md:grid-cols-2 gap-6">
 
-      {/* Pros */}
-      <div className="bg-gray-900 border 
-        border-gray-800 rounded-2xl p-6">
-        <h3 className="text-green-400 font-semibold 
-          mb-4 flex items-center gap-2">
-          ✅ Pros
+      {/* PROS */}
+      <div className="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm">
+        <h3 className="text-green-600 font-semibold mb-4">
+          Pros
         </h3>
+
         <ul className="space-y-3">
-          {pros.map((pro, i) => (
-            <li key={i} 
-              className="flex items-start gap-3">
-              <span className="text-green-500 
-                mt-0.5 text-lg leading-none">
-                •
-              </span>
-              <span className="text-gray-300 text-sm 
-                leading-relaxed">
-                {pro}
-              </span>
+          {pros.map((p, i) => (
+            <li key={i} className="text-gray-700 text-sm flex gap-2">
+              <span className="text-green-500">•</span>
+              {p}
             </li>
           ))}
         </ul>
       </div>
 
-      {/* Cons */}
-      <div className="bg-gray-900 border 
-        border-gray-800 rounded-2xl p-6">
-        <h3 className="text-red-400 font-semibold 
-          mb-4 flex items-center gap-2">
-          ❌ Cons
+      {/* CONS */}
+      <div className="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm">
+        <h3 className="text-red-600 font-semibold mb-4">
+          Cons
         </h3>
+
         <ul className="space-y-3">
-          {cons.map((con, i) => (
-            <li key={i} 
-              className="flex items-start gap-3">
-              <span className="text-red-500 
-                mt-0.5 text-lg leading-none">
-                •
-              </span>
-              <span className="text-gray-300 text-sm 
-                leading-relaxed">
-                {con}
-              </span>
+          {cons.map((c, i) => (
+            <li key={i} className="text-gray-700 text-sm flex gap-2">
+              <span className="text-red-500">•</span>
+              {c}
             </li>
           ))}
         </ul>

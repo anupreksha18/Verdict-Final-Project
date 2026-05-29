@@ -1,173 +1,273 @@
+import { Link } from "react-router-dom";
+
 function HowItWorks() {
   const steps = [
     {
-      icon: "📋",
-      title: "Step 1 — User Chooses Input Mode",
-      desc: "User can paste reviews manually from any website, paste a Flipkart product URL for auto scraping, or search by product name using our built-in dataset.",
-      tech: "React.js Frontend — 3 Input Modes"
+      step: "01",
+      title: "Paste Reviews",
+      desc: "Copy reviews from Amazon, Flipkart, or any marketplace. You can also analyze product URLs or search products from datasets.",
+      image:
+        "https://images.unsplash.com/photo-1516321318423-f06f85e504b3",
     },
     {
-      icon: "🧹",
-      title: "Step 2 — Preprocessing",
-      desc: "System cleans raw reviews by removing noise like dates, verified purchase tags, special characters, emojis and duplicates.",
-      tech: "Python + Regex"
+      step: "02",
+      title: "AI Understands Feedback",
+      desc: "Verdict processes review text, detects sentiment, identifies important product aspects, and extracts meaningful patterns.",
+      image:
+        "https://images.unsplash.com/photo-1555949963-aa79dcee981c",
     },
     {
-      icon: "🔢",
-      title: "Step 3 — Vector Embeddings",
-      desc: "Each cleaned review is converted into a vector (384 numbers) representing its meaning using Sentence Transformers.",
-      tech: "Sentence Transformers (all-MiniLM-L6-v2)"
+      step: "03",
+      title: "Generate Insights",
+      desc: "The system creates summaries, identifies pros and cons, detects suspicious reviews, and calculates ratings.",
+      image:
+        "https://images.unsplash.com/photo-1460925895917-afdab827c52f",
     },
     {
-      icon: "💾",
-      title: "Step 4 — Vector Storage",
-      desc: "All review vectors are stored locally in ChromaDB vector database. No cloud storage needed — runs on your machine.",
-      tech: "ChromaDB (Local)"
-    },
-    {
-      icon: "🔍",
-      title: "Step 5 — Retrieval",
-      desc: "RAG retrieves top 50 most relevant reviews from ChromaDB based on semantic similarity — not just keyword matching.",
-      tech: "LangChain + ChromaDB"
-    },
-    {
-      icon: "🧠",
-      title: "Step 6 — LLM Generation",
-      desc: "Retrieved reviews are sent to Groq API with smart instructions to extract rating, summary, pros, cons, sentiment and aspects.",
-      tech: "Groq API + Llama 3.3 70B"
-    },
-    {
-      icon: "📊",
-      title: "Step 7 — Results Display",
-      desc: "Structured analysis is returned to React frontend and displayed as beautiful cards with charts and visualizations.",
-      tech: "React.js + Recharts + Tailwind CSS"
+      step: "04",
+      title: "Make Better Decisions",
+      desc: "Receive a complete product verdict without reading hundreds of reviews manually.",
+      image:
+        "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40",
     },
   ];
 
-  const techStack = [
-    { name: "React.js", role: "Frontend UI" },
-    { name: "Tailwind CSS", role: "Styling" },
-    { name: "Flask", role: "Backend API" },
-    { name: "LangChain", role: "RAG Framework" },
-    { name: "ChromaDB", role: "Vector Database" },
-    { name: "Sentence Transformers", role: "Embeddings" },
-    { name: "Groq API", role: "LLM Provider" },
-    { name: "Llama 3.3 70B", role: "Language Model" },
+  const outputs = [
+    "Overall Rating",
+    "AI Summary",
+    "Pros & Cons",
+    "Sentiment Analysis",
+    "Aspect Scores",
+    "Fake Review Detection",
   ];
 
-  const modes = [
+  const technologies = [
     {
-      icon: "📋",
-      title: "Mode 1 — Paste Reviews",
-      desc: "Copy reviews from any website — Amazon, Flipkart, Meesho — and paste directly. Works for any platform.",
+      title: "Frontend",
+      desc: "React + Tailwind CSS",
     },
     {
-      icon: "🔗",
-      title: "Mode 2 — Flipkart URL",
-      desc: "Paste a Flipkart product URL and Verdict automatically scrapes and fetches all reviews using Selenium.",
+      title: "Backend",
+      desc: "Flask API",
     },
     {
-      icon: "🔍",
-      title: "Mode 3 — Search Dataset",
-      desc: "Type a product name and Verdict searches our built-in Amazon product review dataset for matching reviews.",
+      title: "AI Layer",
+      desc: "LangChain + Llama",
+    },
+    {
+      title: "Vector Database",
+      desc: "ChromaDB",
     },
   ];
 
   return (
-    <div className="w-full px-6 py-12">
+    <div className="bg-white text-black">
 
-      {/* Header */}
-      <div className="text-center mb-14">
-        <h1 className="text-4xl font-bold text-white mb-3">
-          How Verdict Works
-        </h1>
-        <p className="text-gray-500">
-          Understanding the RAG-based architecture behind Verdict
-        </p>
-      </div>
+      {/* HERO */}
+      <section className="px-6 md:px-16 py-24">
 
-      {/* What is RAG */}
-      <div className="bg-purple-900/20 border border-purple-800 rounded-2xl p-8 mb-10">
-        <h2 className="text-purple-400 font-bold text-2xl mb-4">
-          🧠 What is RAG?
-        </h2>
-        <p className="text-gray-300 text-sm leading-relaxed mb-4">
-          RAG stands for Retrieval Augmented Generation.
-          Instead of training a model on fixed data,
-          RAG dynamically retrieves relevant information
-          and feeds it to a Large Language Model to
-          generate accurate, grounded responses.
-        </p>
-        <div className="bg-gray-900 rounded-xl p-5 font-mono text-sm text-gray-400 space-y-2">
-          <p>❌ Traditional ML:</p>
-          <p className="pl-4">Train model → Predict label only</p>
-          <p className="mt-2">✅ RAG (Verdict):</p>
-          <p className="pl-4 text-purple-400">
-            Store reviews → Retrieve relevant → Generate full insights
-          </p>
-        </div>
-      </div>
+        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
 
-      {/* 3 Input Modes */}
-      <div className="mb-12">
-        <h2 className="text-white font-bold text-2xl mb-6">
-          ⚡ 3 Ways to Analyze
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {modes.map((m, i) => (
-            <div
-              key={i}
-              className="bg-gray-900 border border-purple-800/40 rounded-2xl p-6 hover:border-purple-600 transition"
+          <div>
+
+            <p className="text-sm uppercase tracking-[0.3em] text-gray-400 mb-4">
+              How it works
+            </p>
+
+            <h1 className="text-5xl md:text-6xl font-bold leading-tight">
+              Turn thousands of reviews into actionable insights
+            </h1>
+
+            <p className="text-gray-600 text-lg mt-6 max-w-xl">
+              Verdict analyzes customer feedback using AI and transforms raw reviews into ratings, summaries, sentiment insights, and buying recommendations.
+            </p>
+
+            <Link
+              to="/analyzer"
+              className="inline-block mt-8 px-7 py-3 bg-black text-white rounded-xl"
             >
-              <div className="text-4xl mb-4">{m.icon}</div>
-              <h3 className="text-purple-400 font-semibold mb-2">{m.title}</h3>
-              <p className="text-gray-400 text-sm leading-relaxed">{m.desc}</p>
-            </div>
-          ))}
-        </div>
-      </div>
+              Try Analyzer
+            </Link>
 
-      {/* Steps */}
-      <div className="mb-12">
-        <h2 className="text-white font-bold text-2xl mb-6">
-          🔄 The RAG Pipeline
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {steps.map((step, i) => (
-            <div
-              key={i}
-              className="bg-gray-900 border border-gray-800 rounded-2xl p-6 flex gap-5 hover:border-purple-800 transition"
-            >
-              <div className="text-4xl shrink-0">{step.icon}</div>
-              <div>
-                <h3 className="text-white font-semibold mb-2">{step.title}</h3>
-                <p className="text-gray-400 text-sm leading-relaxed mb-3">{step.desc}</p>
-                <span className="inline-block px-3 py-1 bg-purple-900/40 border border-purple-800 text-purple-300 text-xs rounded-full">
-                  {step.tech}
-                </span>
+          </div>
+
+          <div className="bg-gray-50 border rounded-3xl p-6 shadow-sm">
+
+            <img
+              src="https://images.unsplash.com/photo-1551288049-bebda4e38f71"
+              alt=""
+              className="rounded-2xl w-full h-[420px] object-cover"
+            />
+
+          </div>
+
+        </div>
+
+      </section>
+
+      {/* PROCESS SECTION */}
+      <section className="bg-gray-50 py-24 px-6 md:px-16">
+
+        <div className="max-w-7xl mx-auto">
+
+          <div className="mb-20">
+
+            <h2 className="text-4xl font-bold">
+              From raw reviews to clear decisions
+            </h2>
+
+            <p className="text-gray-600 mt-3">
+              A simple AI pipeline designed to save hours of manual review reading.
+            </p>
+
+          </div>
+
+          <div className="space-y-24">
+
+            {steps.map((step, index) => (
+              <div
+                key={step.step}
+                className="grid lg:grid-cols-2 gap-16 items-center"
+              >
+
+                <div
+                  className={`${
+                    index % 2 !== 0 ? "lg:order-2" : ""
+                  }`}
+                >
+                  <p className="text-sm font-medium text-gray-400 mb-3">
+                    STEP {step.step}
+                  </p>
+
+                  <h3 className="text-4xl font-bold mb-5">
+                    {step.title}
+                  </h3>
+
+                  <p className="text-gray-600 text-lg leading-relaxed">
+                    {step.desc}
+                  </p>
+                </div>
+
+                <div
+                  className={`${
+                    index % 2 !== 0 ? "lg:order-1" : ""
+                  }`}
+                >
+                  <div className="bg-white border rounded-3xl p-5 shadow-sm">
+
+                    <img
+                      src={step.image}
+                      alt=""
+                      className="rounded-2xl h-[320px] w-full object-cover"
+                    />
+
+                  </div>
+                </div>
+
               </div>
-            </div>
-          ))}
-        </div>
-      </div>
+            ))}
 
-      {/* Tech Stack */}
-      <div className="bg-gray-900 border border-gray-800 rounded-2xl p-8">
-        <h2 className="text-white font-bold text-2xl mb-6">
-          🛠️ Tech Stack
-        </h2>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          {techStack.map((tech) => (
-            <div
-              key={tech.name}
-              className="bg-gray-800 rounded-xl p-5 text-center hover:bg-gray-700 transition"
-            >
-              <p className="text-white font-semibold text-sm mb-1">{tech.name}</p>
-              <p className="text-gray-500 text-xs">{tech.role}</p>
-            </div>
-          ))}
+          </div>
+
         </div>
-      </div>
+
+      </section>
+
+      {/* OUTPUTS */}
+      <section className="py-24 px-6 md:px-16">
+
+        <div className="max-w-7xl mx-auto">
+
+          <div className="mb-14">
+
+            <h2 className="text-4xl font-bold">
+              What you receive
+            </h2>
+
+            <p className="text-gray-600 mt-3">
+              Every analysis generates structured insights ready for decision making.
+            </p>
+
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+            {outputs.map((item) => (
+              <div
+                key={item}
+                className="bg-white border rounded-2xl p-6 hover:shadow-md transition"
+              >
+                <h3 className="font-semibold text-lg">
+                  {item}
+                </h3>
+
+                <p className="text-gray-500 text-sm mt-2">
+                  Automatically generated by Verdict AI.
+                </p>
+              </div>
+            ))}
+
+          </div>
+
+        </div>
+
+      </section>
+
+      {/* TECH STACK */}
+      <section className="bg-gray-50 py-24 px-6 md:px-16">
+
+        <div className="max-w-7xl mx-auto">
+
+          <h2 className="text-4xl font-bold mb-3">
+            Built with modern technology
+          </h2>
+
+          <p className="text-gray-600 mb-12">
+            Powerful tools working together behind the scenes.
+          </p>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+            {technologies.map((tech) => (
+              <div
+                key={tech.title}
+                className="bg-white border rounded-2xl p-6"
+              >
+                <p className="text-sm text-gray-400 mb-2">
+                  {tech.title}
+                </p>
+
+                <h3 className="font-semibold text-lg">
+                  {tech.desc}
+                </h3>
+              </div>
+            ))}
+
+          </div>
+
+        </div>
+
+      </section>
+
+      {/* CTA */}
+      <section className="bg-black text-white py-24 px-6 md:px-16 text-center">
+
+        <h2 className="text-5xl font-bold">
+          Ready to analyze reviews?
+        </h2>
+
+        <p className="text-gray-300 mt-5 text-lg max-w-2xl mx-auto">
+          Stop reading hundreds of reviews manually. Let AI summarize everything in seconds.
+        </p>
+
+        <Link
+          to="/analyzer"
+          className="inline-block mt-8 px-8 py-3 bg-white text-black rounded-xl font-medium"
+        >
+          Start Analyzing
+        </Link>
+
+      </section>
 
     </div>
   );
