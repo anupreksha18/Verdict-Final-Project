@@ -84,7 +84,7 @@ def scrape_flipkart_reviews(url, max_pages=3):
 
         # Convert to reviews URL
         reviews_url = build_flipkart_reviews_url(url)
-        print(f"📄 Reviews URL: {reviews_url}")
+        print(f" Reviews URL: {reviews_url}")
 
         for page in range(1, max_pages + 1):
 
@@ -94,7 +94,7 @@ def scrape_flipkart_reviews(url, max_pages=3):
             else:
                 page_url = f"{reviews_url}&page={page}" if "?" in reviews_url else f"{reviews_url}?page={page}"
 
-            print(f"📄 Loading page {page}...")
+            print(f" Loading page {page}...")
             driver.get(page_url)
 
             # Wait for page to load
@@ -109,7 +109,7 @@ def scrape_flipkart_reviews(url, max_pages=3):
 
             # Use the correct selector found from inspection
             selectors = [
-                "div.css-146c3p1",   # ✅ Pure review text — confirmed working!
+                "div.css-146c3p1",   #  Pure review text — confirmed working!
                 "div.fWi7J_",        # Full review card fallback
                 "div.yiQOTv",        # Another fallback
             ]
@@ -122,12 +122,12 @@ def scrape_flipkart_reviews(url, max_pages=3):
                         text = el.text.strip()
                         if text and len(text) > 10:
                             reviews.append(text)
-                    print(f"✅ Found {len(elements)} reviews on page {page} with {selector}")
+                    print(f" Found {len(elements)} reviews on page {page} with {selector}")
                     found = True
                     break
 
             if not found:
-                print(f"⚠️ No reviews on page {page}")
+                print(f"No reviews on page {page}")
                 break
 
             time.sleep(random.uniform(2.0, 3.0))
@@ -137,7 +137,7 @@ def scrape_flipkart_reviews(url, max_pages=3):
 
         # Remove duplicates
         reviews = list(dict.fromkeys(reviews))
-        print(f"✅ Total Flipkart reviews scraped: {len(reviews)}")
+        print(f" Total Flipkart reviews scraped: {len(reviews)}")
         return reviews, None
 
     except Exception as e:

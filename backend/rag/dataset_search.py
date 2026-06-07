@@ -13,7 +13,7 @@ def load_dataset():
         return df_cache
 
     try:
-        print("📂 Loading dataset...")
+        print(" Loading dataset...")
         df = pd.read_csv(DATASET_PATH, on_bad_lines='skip', low_memory=False)
 
         # Keep only columns we need
@@ -25,11 +25,11 @@ def load_dataset():
         df = df[df['reviews.text'].str.strip() != '']
 
         df_cache = df
-        print(f"✅ Dataset loaded! Total reviews: {len(df)}")
+        print(f"Dataset loaded! Total reviews: {len(df)}")
         return df
 
     except Exception as e:
-        print(f"❌ Failed to load dataset: {str(e)}")
+        print(f" Failed to load dataset: {str(e)}")
         return None
 
 
@@ -66,7 +66,7 @@ def search_product_reviews(product_name, max_reviews=60):
         if matched.empty:
             return None, None, f"No reviews found for '{product_name}'. Try a different product name or paste reviews manually."
 
-        print(f"✅ Found {len(matched)} reviews for '{product_name}'")
+        print(f" Found {len(matched)} reviews for '{product_name}'")
 
         # Get product info
         product_info = {
@@ -94,7 +94,7 @@ def search_product_reviews(product_name, max_reviews=60):
         if not reviews:
             return None, None, f"Reviews found but could not extract text for '{product_name}'."
 
-        print(f"✅ Extracted {len(reviews)} reviews for analysis")
+        print(f" Extracted {len(reviews)} reviews for analysis")
         return reviews, product_info, None
 
     except Exception as e:

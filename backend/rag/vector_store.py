@@ -28,7 +28,7 @@ def store_reviews(reviews, collection_name="product_reviews"):
         ids=[f"review_{i}" for i in range(len(reviews))]
     )
     
-    print(f"✅ Stored {len(reviews)} reviews in ChromaDB!")
+    print(f" Stored {len(reviews)} reviews in ChromaDB!")
     return collection
 
 def get_relevant_reviews(query, collection_name="product_reviews", n=50):

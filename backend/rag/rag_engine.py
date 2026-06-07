@@ -17,7 +17,7 @@ def analyze_reviews(raw_text):
     if len(reviews) == 0:
         return {"error": "No valid reviews found!"}
 
-    print(f"✅ Parsed {len(reviews)} reviews")
+    print(f"Parsed {len(reviews)} reviews")
 
     # Step 2 - Store in ChromaDB
     store_reviews(reviews)
@@ -28,7 +28,7 @@ def analyze_reviews(raw_text):
         n=50
     )
 
-    print(f"✅ Retrieved {len(relevant)} relevant reviews")
+    print(f"Retrieved {len(relevant)} relevant reviews")
 
     # Step 4 - Build prompt
     reviews_text = "\n".join([f"- {r}" for r in relevant])
@@ -314,5 +314,5 @@ def parse_response(text):
                 if result['summary']:
                     result['summary'] += ' ' + clean_line
 
-    print(f"✅ Parsed aspects: {result['aspects']}")
+    print(f" Parsed aspects: {result['aspects']}")
     return result

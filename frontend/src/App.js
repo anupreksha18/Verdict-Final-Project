@@ -6,12 +6,14 @@ import Analyzer from "./pages/Analyzer";
 import HowItWorks from "./pages/HowItWorks";
 import About from "./pages/About";
 import Team from "./pages/Team";
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   return (
     <BrowserRouter>
       <div className="min-h-screen bg-gray-950 
         text-white flex flex-col">
+        <ScrollToTop />
         <Navbar />
         <main className="flex-1">
           <Routes>

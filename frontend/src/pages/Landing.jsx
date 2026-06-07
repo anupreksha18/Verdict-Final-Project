@@ -128,7 +128,7 @@ function Landing() {
         <div className="grid md:grid-cols-4 gap-6">
 
           {features.map((f, i) => (
-            <div key={i} className="p-6 border rounded-2xl hover:shadow-md transition">
+            <div key={i} className="p-6 border rounded-2xl hover:shadow-md transition hover:bg-gray-100">
 
               <div className="mb-3">{f.icon}</div>
 
